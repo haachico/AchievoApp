@@ -20,7 +20,6 @@ const TasksContextProvider = ({ children }) => {
   useEffect(() => {
     const storedTasks = localStorage.getItem("allTasks");
 
-    console.log(storedTasks);
     if (storedTasks) {
       setTasks(JSON.parse(storedTasks));
     }
@@ -42,7 +41,6 @@ const TasksContextProvider = ({ children }) => {
     setIsEditable(false);
   };
 
-  console.log(taskItem, "TASK ITEM");
   const handleDueDateChange = (date) => {
     if (isEditable) {
       setEditTaskItem((prevState) => {

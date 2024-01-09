@@ -59,7 +59,6 @@ const TaskForm = () => {
             value={isEditable ? editTaskItem.priority : taskItem.taskPriority}
             onChange={handleChange}
           >
-            <option value="low">Select</option>
             <option value="high">High</option>
             <option value="medium">Medium</option>
             <option value="low">Low</option>

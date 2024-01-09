@@ -11,8 +11,6 @@ const TaskDetails = () => {
 
   const selectedTask = tasks.find((task) => task.id === id);
 
-  console.log(selectedTask, "SELECTED");
-
   const { title, description, dueDate, priority } = selectedTask;
 
   return (
