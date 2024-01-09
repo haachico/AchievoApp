@@ -1,6 +1,8 @@
 import { useDrop } from "react-dnd";
 import { useContext } from "react";
 import { TasksContext } from "../context/tasksContext";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import TasksList from "./TasksList";
 
 const Categories = () => {
@@ -57,6 +59,9 @@ const Categories = () => {
 
   const deleteTask = (id) => {
     setTasks((prevState) => prevState.filter((task) => task.id !== id));
+    toast.success("Task deleted!", {
+      position: toast.POSITION.TOP_RIGHT,
+    });
   };
 
   const selectPriority = (e, id) => {
@@ -120,6 +125,7 @@ const Categories = () => {
           <h3>No task here yet.</h3>
         )}
       </div>
+      <ToastContainer />
     </div>
   );
 };

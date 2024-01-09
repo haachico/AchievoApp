@@ -1,6 +1,9 @@
 import { createContext, useEffect, useState } from "react";
 import { nanoid } from "nanoid";
 import { format } from "date-fns";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 export const TasksContext = createContext();
 
 const TasksContextProvider = ({ children }) => {
@@ -100,6 +103,10 @@ const TasksContextProvider = ({ children }) => {
       setEditTaskItem("");
 
       setIsEditable(false);
+
+      toast.success("Task successfully edited!", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
     } else {
       if (taskItem.taskText === "") return;
       const newTask = {
@@ -122,6 +129,10 @@ const TasksContextProvider = ({ children }) => {
         taskDueDate: null,
         taskPriority: "",
       });
+
+      toast.success("A new task sucessfully added!", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
     }
 
     setIsModalOpen(false);
@@ -137,26 +148,28 @@ const TasksContextProvider = ({ children }) => {
   };
 
   return (
-    <TasksContext.Provider
-      value={{
-        tasks,
-        setTasks,
-        taskItem,
-        editTaskItem,
-        isModalOpen,
-        setIsModalOpen,
-        openModal,
-        closeModal,
-        handleChange,
-        handleDueDateChange,
-        handleSubmit,
-        handleEdit,
-        isEditable,
-        setIsEditable,
-      }}
-    >
-      {children}
-    </TasksContext.Provider>
+    <div>
+      <TasksContext.Provider
+        value={{
+          tasks,
+          setTasks,
+          taskItem,
+          editTaskItem,
+          isModalOpen,
+          setIsModalOpen,
+          openModal,
+          closeModal,
+          handleChange,
+          handleDueDateChange,
+          handleSubmit,
+          handleEdit,
+          isEditable,
+          setIsEditable,
+        }}
+      >
+        {children}
+      </TasksContext.Provider>
+    </div>
   );
 };
 
