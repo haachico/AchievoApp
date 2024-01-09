@@ -10,6 +10,8 @@ The Task Manager app is designed to offer a user-friendly and intuitive task man
 
 - **Edit and Delete Tasks:** Experience flexibility in task management. Edit existing tasks to reflect changes and delete tasks that are no longer needed, ensuring your task list remains dynamic and personalized.
 
+- **Toast Notifications:** Receive instant feedback on your actions with toast notifications. Whether adding, editing, or deleting tasks, the app utilizes the `react-toastify` library to provide visible and user-friendly notifications.
+
 ### Streamlined Task Organization
 
 - **Task Categories:** Efficiently organize your tasks into three meaningful categories - "Added," "Started," and "Completed." The application leverages the React-dnd library, enabling you to intuitively drag and drop tasks between these categories.
